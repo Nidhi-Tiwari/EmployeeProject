@@ -1,14 +1,14 @@
 package com.prepare.employee.Services.impl;
 
-import com.prepare.employee.Controllers.Request.RegisterRequest;
-import com.prepare.employee.Controllers.Response.RegisterResponse;
+import com.prepare.employee.ControllersPackage.Request.RegisterRequest;
+import com.prepare.employee.ControllersPackage.Response.RegisterResponse;
 import com.prepare.employee.DataBaseConnection.EmployeeEntity;
 import com.prepare.employee.Repositories.EmployeeRepository;
 
 import com.prepare.employee.Services.RegisterEmployeeService;
 import com.prepare.employee.util.RequestParamValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RegisterEmployeeServiceImpl implements RegisterEmployeeService {
@@ -23,6 +23,7 @@ public class RegisterEmployeeServiceImpl implements RegisterEmployeeService {
     }
 
     @Override
+    @Transactional
     public RegisterResponse registerEmployee(RegisterRequest registerRequest) {
         //validation
         registerRequestRequestParamValidator.validate(registerRequest);

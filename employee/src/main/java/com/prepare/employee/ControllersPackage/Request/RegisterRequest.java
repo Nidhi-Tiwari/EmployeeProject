@@ -1,4 +1,4 @@
-package com.prepare.employee.Controllers.Request;
+package com.prepare.employee.ControllersPackage.Request;
 
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data //getter setter set ho jaata he
-@NoArgsConstructor
+@NoArgsConstructor // Constructor with no arguments
 public class RegisterRequest {
 
     @NotNull

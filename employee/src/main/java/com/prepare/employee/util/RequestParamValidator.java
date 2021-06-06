@@ -13,7 +13,7 @@ import java.util.Set;
 public class RequestParamValidator<T> {
     private Validator validator;
 
-    public RequestParamValidator(Validator validator) {
+    public RequestParamValidator() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         this.validator = factory.getValidator();
     }

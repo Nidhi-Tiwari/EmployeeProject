@@ -24,7 +24,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         String ssoToken = req.getHeader("sso-token");
         log.info("Request Validation :: {}",ssoToken);
-        if(!ssoTokenAuthenticator.authenticate(ssoToken)){
+        if(!ssoTokenAuthenticator.authentication2(ssoToken)){
             throw new CustomExceptions("sso token not valid");
         }
         filterChain.doFilter(servletRequest,servletResponse);

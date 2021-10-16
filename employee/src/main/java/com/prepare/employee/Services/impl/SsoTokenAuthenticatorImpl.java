@@ -9,6 +9,7 @@ import com.prepare.employee.util.ExternalHitHelper;
 import com.prepare.employee.util.ExternalHitHelper2;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -50,7 +51,7 @@ public class SsoTokenAuthenticatorImpl implements SsoTokenAuthenticator {
             if (Strings.isBlank(ssoToken)) {
                 return false;
             }
-            Token response = externalHitHelper2.postTokenHit(ssoToken);
+            Token response = externalHitHelper2.postTokenHit(ssoToken, MDC.get("requestId"));
             log.info("Response name ={} ", response.getName());
             log.info("Response userId ={} ", response.getUserId());
             if (ssoToken.equals("usr-123_9"))
